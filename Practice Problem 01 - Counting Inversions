@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> v;
+    int size;
+    cin >> size;
+
+    // Read initial elements
+    for (int i = 0; i < size; i++) {
+        int x;
+        cin >> x;
+        v.push_back(x);
+    }
+
+    int numberOfoperation;
+    cin >> numberOfoperation;
+
+    for (int k = 0; k < numberOfoperation; k++) {
+        int operation, value;
+        cin >> operation >> value;
+
+        switch (operation) {
+            case 1:
+                // Type 1: push value
+                v.push_back(value);
+                break;
+
+            case 2:
+                // Type 2: erase element at index 'value'
+                v.erase(v.begin() + value);
+                break;
+
+            case 3:
+                // Type 3: count how many elements > v[value]
+                int count = 0;
+                for (int i = 0; i < v.size(); i++) {
+                    if (v[i] > v[value]) {
+                        count++;
+                    }
+                }
+                cout << count << endl; // print immediately for each type-3
+                break;
+        }
+    }
+
+    return 0;
+}
