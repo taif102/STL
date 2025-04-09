@@ -1,0 +1,29 @@
+//It has TLE Issue,I have to made it more effecient;
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<string>student;
+    int NumberOfStudent;
+    cin>>NumberOfStudent;
+    for(int i=0;i<NumberOfStudent;i++)
+    {
+        string x;
+        cin>>x;
+        student.push_back(x);
+    }
+    vector<string>StudentCopy;
+    StudentCopy=student;
+    sort(student.begin(),student.end());
+    for(int i=0;i<NumberOfStudent;i++)
+    {
+        for(int j=0;j<NumberOfStudent;j++)
+        {
+            if(StudentCopy[i]==student[j])
+            {
+                cout<<j+1<<endl;
+            }
+        }
+    }
+}
