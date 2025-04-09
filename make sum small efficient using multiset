@@ -1,0 +1,49 @@
+//tle solved
+#include<bits/stdc++.h>
+using namespace std;        
+int main()
+{
+    multiset<int> s;
+   long long n;
+    cin>>n; 
+    for(int i=0;i<n;i++)
+    {
+       long long x;
+        cin>>x;
+        s.insert(x);
+    }
+   long long NoOfOperations; 
+    cin>>NoOfOperations;
+   long long Operator;
+    for(int i=0;i<NoOfOperations;i++)
+    {
+        cin>>Operator;
+        switch(Operator)
+        {
+            case 1:
+                {
+                    auto it = s.end();
+                    it--;
+                   long long x = *it;
+                    s.erase(it);
+                    s.insert(x / 2);
+                }
+                break;
+            case 2:
+                {
+                    auto it = s.begin();
+                   long long x = *it;
+                    s.erase(it);
+                    s.insert(x * 2);
+                }
+                break;
+        }
+    }
+    long long sum = 0;
+    for(auto it = s.begin(); it != s.end(); it++)
+    {
+        sum += *it;
+    }
+    cout << sum << endl;
+    return 0;
+}
