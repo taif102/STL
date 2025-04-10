@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    deque<int>student;
+    int n;
+    cin>>n;
+    for (int i=0;i<n;i++)
+    {
+        int x,y,z;
+        cin>>x>>y;
+        if(x==1)
+        {
+            if (y==0)
+            {
+                cin>>z;
+                student.push_front(z);
+            }
+            else
+            {
+                cin>>z;
+                student.push_back(z);
+            }
+        }
+        else
+        {
+            if (y==0)
+            {
+                //cin>>z;
+                //push_front(z);
+                student.pop_front();
+            }
+            else
+            {
+                //cin>>z;
+                //push_back(z);
+                student.pop_back();
+            }  
+        }
+    }
+    if(!student.empty())
+    {
+        for(auto it:student)
+        {
+            cout<<it<<" ";
+        }
+    }
+    else
+    {
+        cout<<"";
+    }
+}
