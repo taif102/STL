@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;    
+int main()
+{
+    int n;
+    cin>>n;
+    int id=0;
+    unordered_map<string,int>students;
+    for(int i=0;i<n;i++)
+    {
+        string x;
+        cin>>x;
+        if(students.find(x)==students.end()) //checking is he registered or not
+        {
+            students[x]=id;
+            id++;
+        }
+        else
+        {
+            cout<<students[x]<<endl;
+        }
+    }
+}
