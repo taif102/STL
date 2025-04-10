@@ -1,0 +1,49 @@
+lower_bound() and upper_bound() define the range of values we care about:
+
+lower_bound(L) → starts from the first number >= L
+
+upper_bound(R) → ends before the first number > R
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    // Store balances in multiset
+    multiset<int> balance;
+    int n;
+    cin >> n; // Read n first
+
+    // Read balances
+    for(int i = 0; i < n; i++)
+    {
+        int x;
+        cin >> x;
+        balance.insert(x);
+    }
+
+    int operation;
+    cin >> operation; // Corrected input
+
+    // Process each query
+    for(int i = 0; i < operation; i++)
+    {
+        int lower, upper;
+        cin >> lower >> upper;
+
+        int sum = 0;
+
+        // Use iterators for range [lower, upper]
+        auto it1 = balance.lower_bound(lower);  // first >= lower
+        auto it2 = balance.upper_bound(upper);  // first > upper
+
+        for(auto it = it1; it != it2; ++it)
+        {
+            sum += *it;
+        }
+
+        cout << sum << endl;
+    }
+
+    return 0;
+}
