@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string str;
+    cin >> str;
+    
+    int open_count = 0;   // Tracks unmatched opening parentheses
+    int close_count = 0;  // Tracks unmatched closing parentheses
+    
+    for (char ch : str) {
+        if (ch == '(') {
+            open_count++;  // Increment open count for an opening parenthesis
+        } else if (ch == ')') {
+            if (open_count > 0) {
+                open_count--;  // Match a closing parenthesis with an opening one
+            } else {
+                close_count++; // Unmatched closing parenthesis
+            }
+        }
+    }
+    
+    // Total insertions needed to balance the string
+    cout << open_count + close_count << endl;
+    
+    return 0;
+}
