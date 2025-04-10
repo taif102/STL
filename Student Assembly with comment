@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    deque<int> student; // create a deque to store student IDs
+    int n;
+    cin >> n; // read number of operations
+
+    for (int i = 0; i < n; i++)
+    {
+        int x, y, z;
+        cin >> x >> y;
+
+        if (x == 1) // Type 1: Insert operation
+        {
+            cin >> z; // read ID
+            if (y == 0)
+                student.push_front(z); // insert at front
+            else
+                student.push_back(z);  // insert at back
+        }
+        else // Type 2: Remove operation
+        {
+            if (!student.empty()) // check if deque is not empty before popping
+            {
+                if (y == 0)
+                    student.pop_front(); // remove from front
+                else
+                    student.pop_back();  // remove from back
+            }
+        }
+    }
+
+    // Output the remaining queue
+    if (!student.empty())
+    {
+        for (auto it : student)
+        {
+            cout << it << " "; // add space between IDs
+        }
+    }
+    else
+    {
+        cout << ""; // print empty line if queue is empty
+    }
+
+    return 0;
+}
